@@ -6,6 +6,9 @@ vue气泡提示插件
 npm install vue-pop
 ```
 ## 使用
+**VUE版本：1.x** <br>
+**必须在vue-cli生成的webpack模板环境中使用**
+
 ### 一，注册组件
 ```
 // 这里使用在main.js中全局注册来示例
