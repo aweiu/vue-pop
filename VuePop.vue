@@ -39,10 +39,10 @@
     background-color: rgb(254, 241, 241);
     box-shadow: 1px 2px 1px rgb(225, 221, 222);
   }
-  tip-arrow.bottom tip-body {
+  tip.bottom tip-body {
     box-shadow: 1px -2px 1px rgb(225, 221, 222);
   }
-  tip-arrow.bottom tip-arrow {
+  tip.bottom tip-arrow {
     top: -5px;
     transform: rotate(225deg);
   }

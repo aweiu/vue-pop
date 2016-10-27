@@ -11,33 +11,33 @@ npm install vue-pop
 // 这里使用在main.js中全局注册来示例
 import vue from 'vue'
 import pop from 'vue-pop'
-vue.component('pop', popTip)
+vue.component('pop', pop)
 ```
 ### 二，vue文件中使用
 ```
 <template>
   <pop v-ref:pop>
-    <div>我是一个div</div>
+    <span>vue-pop</span>
   </pop>
   <button @click="hi">hi</button>
   <button @click="hello">hello</button>
 </template>
 <script>
-export default{
-  created () {
-    // 分别为两个按钮创建两个pop实例
-    this.hiPop = this.$refs.pop.new()
-    this.helloPop = this.$refs.pop.new()
-  },
-  methods: {
-    hi () {
-      this.hiPop.isShow ? this.hiPop.hide() : this.hiPop.show('hi')
+  export default{
+    ready () {
+      // 分别为两个按钮创建两个pop实例
+      this.hiPop = this.$refs.pop.new()
+      this.helloPop = this.$refs.pop.new()
     },
-    hello () {
-      this.helloPop.isShow ? this.helloPop.hide() : this.helloPop.show('hello')
+    methods: {
+      hi () {
+        this.hiPop.isShow ? this.hiPop.hide() : this.hiPop.show('hi')
+      },
+      hello () {
+        this.helloPop.isShow ? this.helloPop.hide() : this.helloPop.show('hello')
+      }
     }
   }
-}
 </script>
 ```
 ## 为什么不用组件的props数据响应来控制而是要调用实例方法？
