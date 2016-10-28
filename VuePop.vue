@@ -1,23 +1,23 @@
 <template>
-  <pop-tip-wrap>
-    <tip v-show="isShow" :class="{bottom:isBottom}"
-         :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:tip>
-      <tip-body>
+  <pop-wrap>
+    <pop v-show="isShow" :class="{bottom: isBottom}"
+         :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:pop>
+      <pop-body>
         {{tip}}
-      </tip-body>
-      <tip-arrow></tip-arrow>
-    </tip>
+      </pop-body>
+      <pop-arrow></pop-arrow>
+    </pop>
     <slot></slot>
-  </pop-tip-wrap>
+  </pop-wrap>
 </template>
 <style>
-  pop-tip-wrap {
+  pop-wrap {
     position: relative;
   }
-  tip {
+  pop {
     position: absolute;
   }
-  tip-body {
+  pop-body {
     padding: 5px 10px;
     background-color: rgb(254, 241, 241);
     color: #f94949;
@@ -26,7 +26,7 @@
     box-shadow: 1px 2px 1px rgb(225, 221, 222);
     white-space: nowrap;
   }
-  tip-arrow {
+  pop-arrow {
     display: inline-block;
     height: 8px;
     width: 8px;
@@ -39,10 +39,10 @@
     background-color: rgb(254, 241, 241);
     box-shadow: 1px 2px 1px rgb(225, 221, 222);
   }
-  tip.bottom tip-body {
+  pop.bottom pop-body {
     box-shadow: 1px -2px 1px rgb(225, 221, 222);
   }
-  tip.bottom tip-arrow {
+  pop.bottom pop-arrow {
     top: -5px;
     transform: rotate(225deg);
   }
