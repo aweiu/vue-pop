@@ -1,7 +1,7 @@
 <template>
   <pop-el-wrap>
     <pop-el v-show="isShow" :class="{bottom: isBottom}"
-         :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:pop-el>
+         :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:pop>
       <pop-el-body>
         {{tip}}
       </pop-el-body>
@@ -81,7 +81,7 @@
       isShow (is) {
         if (is) {
           var wrap = this.$el
-          var tRect = this.$els.tip.getBoundingClientRect()
+          var tRect = this.$els.pop.getBoundingClientRect()
           var tipHeight = tRect.height + 10
           var tipWidth = tRect.width
           var sRect = this.getSlotRect()
