@@ -1,23 +1,23 @@
 <template>
-  <pop-wrap>
-    <pop v-show="isShow" :class="{bottom: isBottom}"
-         :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:pop>
-      <pop-body>
+  <pop-el-wrap>
+    <pop-el v-show="isShow" :class="{bottom: isBottom}"
+         :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:pop-el>
+      <pop-el-body>
         {{tip}}
-      </pop-body>
-      <pop-arrow></pop-arrow>
-    </pop>
+      </pop-el-body>
+      <pop-el-arrow></pop-el-arrow>
+    </pop-el>
     <slot></slot>
-  </pop-wrap>
+  </pop-el-wrap>
 </template>
 <style>
-  pop-wrap {
+  pop-el-wrap {
     position: relative;
   }
-  pop {
+  pop-el {
     position: absolute;
   }
-  pop-body {
+  pop-el-body {
     padding: 5px 10px;
     background-color: rgb(254, 241, 241);
     color: #f94949;
@@ -26,7 +26,7 @@
     box-shadow: 1px 2px 1px rgb(225, 221, 222);
     white-space: nowrap;
   }
-  pop-arrow {
+  pop-el-arrow {
     display: inline-block;
     height: 8px;
     width: 8px;
@@ -39,10 +39,10 @@
     background-color: rgb(254, 241, 241);
     box-shadow: 1px 2px 1px rgb(225, 221, 222);
   }
-  pop.bottom pop-body {
+  pop-el.bottom pop-el-body {
     box-shadow: 1px -2px 1px rgb(225, 221, 222);
   }
-  pop.bottom pop-arrow {
+  pop-el.bottom pop-el-arrow {
     top: -5px;
     transform: rotate(225deg);
   }
