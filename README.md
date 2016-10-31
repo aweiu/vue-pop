@@ -76,3 +76,6 @@ vue.component('pop', pop)
   <div>我是一个div</div>
 </pop>
 ```
+## vue的错误警告：Unknown custom element
+请忽略它。。插件使用了一些自定义的标签来避免受到其他css样式的干扰，vue 1.x还不支持忽略它们。<br>
+不过请放心，build之后在生产环境的项目不会出现这些警告
