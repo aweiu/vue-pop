@@ -1,12 +1,20 @@
 {
   "name": "vue-pop",
-  "version": "0.0.8",
+  "version": "0.0.9",
+  "description": "vue气泡提示插件",
+  "keywords": [
+    "pop-tip",
+    "tip",
+    "pop",
+    "vue"
+  ],
   "author": {
     "name": "余阿伟"
   },
-  "main": "VuePop.vue",
+  "main": "Pop.vue",
   "repository": {
     "type": "git",
     "url": "https://github.com/aweiu/vue-pop.git"
-  }
+  },
+  "license": "ISC"
 }
