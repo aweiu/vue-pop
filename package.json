@@ -1,7 +1,7 @@
 {
   "name": "vue-pop",
   "version": "0.1.0",
-  "description": "vue气泡提示插件",
+  "description": "vue气泡提示组件",
   "keywords": [
     "pop-tip",
     "tip",
