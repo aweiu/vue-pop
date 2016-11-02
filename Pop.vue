@@ -1,7 +1,7 @@
 <template>
   <pop-el-wrap>
     <pop-el v-show="isShow" :class="{bottom: isBottom}"
-         :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:pop>
+            :style="{left: left + 'px', top: top + 'px', zIndex: zIndex || 9999999}" v-el:pop>
       <pop-el-body>
         {{tip}}
       </pop-el-body>
@@ -46,8 +46,20 @@
     top: -5px;
     transform: rotate(225deg);
   }
+
+
+
 </style>
 <script>
+  // 手动注册自定义标签来消灭Unknown custom element错误警告
+  ['pop-el-wrap',
+    'pop-el',
+    'pop-el-body',
+    'pop-el-arrow']
+    .forEach(tagName => {
+      document.registerElement(tagName)
+    })
+
   function getOffset (n1, n2) {
     var nr1 = n1.getBoundingClientRect()
     var nr2 = n2.getBoundingClientRect()

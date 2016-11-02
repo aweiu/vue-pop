@@ -76,7 +76,3 @@ vue.component('pop', pop)
 * 再点击"hello"按钮，"hello"气泡消失（"hi"气泡重新出现）
 
 也就是说同一个pop组件，只会显示最后一次show方法设置的内容，但会按照调用顺序储存内容队列。然后各自的pop实例维护各自的show，hide
-
-### vue的错误警告：Unknown custom element
-请忽略它。。插件使用了一些自定义的标签来避免受到其他css样式的干扰，vue 1.x还不支持忽略它们。<br>
-不过请放心，build之后在生产环境的项目不会出现这些警告
