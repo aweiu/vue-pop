@@ -10,13 +10,15 @@
     <slot></slot>
   </pop-el-wrap>
 </template>
-<style>
+<style scoped>
   pop-el-wrap {
     position: relative;
   }
+
   pop-el {
     position: absolute;
   }
+
   pop-el-body {
     padding: 5px 10px;
     background-color: rgb(254, 241, 241);
@@ -26,6 +28,7 @@
     box-shadow: 1px 2px 1px rgb(225, 221, 222);
     white-space: nowrap;
   }
+
   pop-el-arrow {
     display: inline-block;
     height: 8px;
@@ -39,26 +42,25 @@
     background-color: rgb(254, 241, 241);
     box-shadow: 1px 2px 1px rgb(225, 221, 222);
   }
+
   pop-el.bottom pop-el-body {
     box-shadow: 1px -2px 1px rgb(225, 221, 222);
   }
+
   pop-el.bottom pop-el-arrow {
     top: -5px;
     transform: rotate(225deg);
   }
 
-
-
 </style>
 <script>
   // 手动注册自定义标签来消灭Unknown custom element错误警告
-  ['pop-el-wrap',
-    'pop-el',
-    'pop-el-body',
-    'pop-el-arrow']
-    .forEach(tagName => {
+  for (let tagName of ['pop-el-wrap', 'pop-el', 'pop-el-body', 'pop-el-arrow']) {
+    try {
       document.registerElement(tagName)
-    })
+    } catch (registerErr) {
+    }
+  }
 
   function getOffset (n1, n2) {
     var nr1 = n1.getBoundingClientRect()
