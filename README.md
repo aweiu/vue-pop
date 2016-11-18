@@ -42,9 +42,9 @@ vue.component('pop', pop)
   }
 </script>
 ```
-气泡怎么样？丑的话自己用css覆盖样式吧。。
-
 ![image](https://github.com/aweiu/vue-pop/blob/master/example.png)
+
+气泡怎么样？丑的话自己用css覆盖样式吧。。
 
 ## 方法
 ### show (content)
