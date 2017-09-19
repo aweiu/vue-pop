@@ -63,8 +63,8 @@
   }
 
   function getOffset (n1, n2) {
-    var nr1 = n1.getBoundingClientRect()
-    var nr2 = n2.getBoundingClientRect()
+    const nr1 = n1.getBoundingClientRect()
+    const nr2 = n2.getBoundingClientRect()
     return {
       left: nr1.left - nr2.left,
       top: nr1.top - nr2.top
@@ -94,12 +94,12 @@
     watch: {
       isShow (is) {
         if (is) {
-          var wrap = this.$el
-          var tRect = this.$els.pop.getBoundingClientRect()
-          var tipHeight = tRect.height + 10
-          var tipWidth = tRect.width
-          var sRect = this.getSlotRect()
-          var offset = getOffset(this.getSlot(), wrap)
+          const wrap = this.$el
+          const tRect = this.$els.pop.getBoundingClientRect()
+          const tipHeight = tRect.height + 10
+          const tipWidth = tRect.width
+          const sRect = this.getSlotRect()
+          const offset = getOffset(this.getSlot(), wrap)
           this.isBottom = this.bottom !== undefined || sRect.top < tipHeight
           this.top = this.isBottom ? offset.top + sRect.height + 10 : offset.top - tipHeight
           this.left = (offset.left + sRect.width / 2) - tipWidth / 2
@@ -117,26 +117,27 @@
         return this.getSlot().getBoundingClientRect()
       },
       new () {
-        var self = this
-        var index = this.index++
+        const self = this
+        const index = this.index++
         return {
           isShow: false,
           show (tip) {
-            if (typeof tip === 'string' && tip.length > 0) {
-              var sRect = self.getSlotRect()
+            if (typeof tip === 'string') {
+              if (tip.length === 0) return this.hide()
+              const sRect = self.getSlotRect()
               if (sRect.height === 0 && sRect.width === 0) {
                 console.log(self)
                 return console.warn('tip can not show on an hidden popTip')
               }
-              var aIndex = self.record.indexOf(index)
+              let aIndex = self.record.indexOf(index)
               aIndex = (aIndex === -1 ? self.record.length : aIndex)
-              self.record.$set(aIndex, index)
               self.tips.$set(aIndex, tip)
+              self.$nextTick(() => self.record.$set(aIndex, index))
               this.isShow = true
             }
           },
           hide () {
-            var aIndex = self.record.indexOf(index)
+            const aIndex = self.record.indexOf(index)
             if (aIndex !== -1) {
               self.record.splice(aIndex, 1)
               self.tips.splice(aIndex, 1)
